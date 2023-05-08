@@ -1,7 +1,7 @@
 # gpnn-experiments
 Code to reproduce results of the paper. Includes code to run distributed methods and SVGP as well as our own method. Additionally includes code to run simulations as well as scripts to analyse the output data and generate tables and figures.
 
-A "requirements.txt" file is included in the repository with all of the necessary dependencies to reproduce all of these results.
+A `requirements.txt` file is included in the repository with all of the necessary dependencies to reproduce all of these results.
 `pip install -r requirements.txt` will install the required packages.
 
 ## Main results table
@@ -11,7 +11,7 @@ A "requirements.txt" file is included in the repository with all of the necessar
 ### Reproducing benchmark methods (Distributed and SVGP)
 
 ### Reproducing our method
-Our method is run via the "method_of_paper.py" file, using command line, e.g.
+Our method is run via the `method_of_paper.py` file, using command line, e.g.
 `python3 method_of_paper.py -xyinfl bike/data.npy -aker RBF  -seed 11   -n_recal 1000`
 
 ### Generating the results table
@@ -34,7 +34,22 @@ python3 $SCRIPT_DIR/simulate_GPNN_limits_alg1.py -n_train 100000 -n_test 1000 -d
     -array_idx 0 \
 ```
 
-This will output a csv file ("sim_gpnn_limits_results_d15.csv") with all of the results recorded for analysis. Analysis can be conducted with the "analyse_GPNN_limit_sims.py" file.
+This will output a csv file (`sim_gpnn_limits_results_d15.csv`) with all of the results recorded for analysis. Analysis can be conducted with the `analyse_GPNN_limit_sims.py` file.
 
 ## Guide to reproducing results on synthetic data
+
+### Generating the data
+The data is generated via command line calls to the following scripts in the `experiments/synthetic/` directory:
+
+    1.  `generate_oak_ds.py`
+    
+    2.  `add_noise.py`
+    
+    3.  `truncate.py`
+    
+    
+For example, for part 3 an example call would be:
 `python3  truncate_xy_file.py  -fracfile 0.0001 -xyinfl noisy_oak_var0.05.npy  -xyoutfl trunc_noisy_oak.npy -rep_size_fl oak_res.csv`
+
+### Running on the data
+The output file `trunc_noisy_oak.npy` can then be used with the script that runs our method, `method_of_paper.py` as described above in the UCI results section.
