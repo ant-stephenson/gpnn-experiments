@@ -12,7 +12,7 @@ A "requirements.txt" file is included in the repository with all of the necessar
 
 ### Reproducing our method
 Our method is run via the "method_of_paper.py" file, using command line, e.g.
-`python3 method_of_paper.py -xyinfl /bike/data.npy -aker Exp  -seed 11  -n_test 3860   -n_recal 1000`
+`python3 method_of_paper.py -xyinfl bike/data.npy -aker RBF  -seed 11   -n_recal 1000`
 
 ### Generating the results table
 The results from all of the distributed methods can be combined and then imported into python with the results of SVGP and our method and analysed with the aid of the "transform_results.py" script which imports various functions from the "results_utils.py" file.
