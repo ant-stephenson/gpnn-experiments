@@ -35,3 +35,6 @@ python3 $SCRIPT_DIR/simulate_GPNN_limits_alg1.py -n_train 100000 -n_test 1000 -d
 ```
 
 This will output a csv file ("sim_gpnn_limits_results_d15.csv") with all of the results recorded for analysis. Analysis can be conducted with the "analyse_GPNN_limit_sims.py" file.
+
+## Guide to reproducing results on synthetic data
+`python3  truncate_xy_file.py  -fracfile 0.0001 -xyinfl noisy_oak_var0.05.npy  -xyoutfl trunc_noisy_oak.npy -rep_size_fl oak_res.csv`
