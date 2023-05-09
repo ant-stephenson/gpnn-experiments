@@ -20,16 +20,13 @@ The results from all of the distributed methods can be combined and then importe
 ## Guide to reproduce simulated results
 Run the below snippet with relevant location filled in (and choices of parameters) in a bash script.
 ```
-SCRIPT_DIR=<loc>
-
-VAR_PAR=noisevar
 DIM=15
 
 OUTFILE="sim_gpnn_limits_results_d${DIM}"
 
-python3 $SCRIPT_DIR/simulate_GPNN_limits_alg1.py -n_train 100000 -n_test 1000 -d $DIM \
+python3 simulate_GPNN_limits_alg1.py -n_train 100000 -n_test 1000 -d $DIM \
     -tker RBF -tks 0.9 -tl 0.75 -tnv 0.1 -aks 1.0 -al 0.75 -anv 0.2 \
-    -varpar $VAR_PAR -numvals 40 -numnn 400 -seed 3 \
+    -numvals 40 -numnn 400 -seed 3 \
     -out "${OUTFILE}" \
     -array_idx 0 \
 ```
