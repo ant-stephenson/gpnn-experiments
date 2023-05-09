@@ -5,7 +5,6 @@ import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import seaborn as sns
-import gpybench.plotting as gplot
 
 Idx = pd.IndexSlice
 
@@ -232,4 +231,4 @@ def plot_model_metric(data, metric = "calibration", file_type = "png", xticksize
             ax.get_legend().remove()
         plt.title(f"{ax.get_title()}" + rescale_title, fontsize=fontsize)
         if save:
-            gplot.save_fig(Path("."), f"{metric}_vs_model_whitening" + rescale_filename, file_type, show=True, overwrite=True)
+            pass

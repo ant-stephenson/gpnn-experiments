@@ -1,12 +1,8 @@
 #%%
 import pandas as pd
 from pathlib import Path
-import re
-import numpy as np
-import matplotlib as mpl
 import matplotlib.pyplot as plt
 import seaborn as sns
-import gpybench.plotting as gplot
 
 from results_utils import *
 
@@ -137,7 +133,6 @@ plt.xscale('log')
 plt.ylabel(None)
 plt.xlabel("$n$", fontsize=18)
 sns.move_legend(fg, loc="upper left", bbox_to_anchor=(0.2, 0.9), fontsize=12, borderpad=0., handletextpad=0., borderaxespad=0.)
-gplot.save_fig(Path("."), "train_time_vs_model", "png", show=True, overwrite=True, size_inches=(6,4))
 #%%
 fg = sns.relplot(
     data=all_results, kind="line",
@@ -148,7 +143,6 @@ plt.yscale('log')
 plt.xscale('log')
 plt.ylabel("Time per prediction/ms")
 fg.legend.set_title(None)
-gplot.save_fig(Path("."), "test_time_vs_model", "png", show=True, overwrite=True)
 #%%
 #%%
 plot_model_metric(all_results, "calibration", save=True, rescale=False)

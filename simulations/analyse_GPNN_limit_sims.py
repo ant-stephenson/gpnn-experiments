@@ -9,8 +9,6 @@ import seaborn as sns
 from scipy.stats import mode
 from itertools import product as cartesian_prod
 
-# import gpybench.plotting as gplot
-
 sns.set_palette(None)
 #%%
 path = Path(".").joinpath("experiments/sim_gpnn_limits_results.csv")
