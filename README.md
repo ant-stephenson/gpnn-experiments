@@ -1,4 +1,4 @@
-# gpnn-experiments
+# Leveraging Locality and Robustness to Achieve Massively Scalable Gaussian Process Regression
 Code to reproduce results of the paper. Includes code to run distributed methods and SVGP as well as our own method. Additionally includes code to run simulations as well as scripts to analyse the output data and generate tables and figures.
 
 A `requirements.txt` file is included in the repository with all of the necessary dependencies to reproduce all of these results.
