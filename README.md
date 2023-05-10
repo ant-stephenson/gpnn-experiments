@@ -18,7 +18,7 @@ First we downloaded the UCI datasets using the `bayesian_benchmarks` package whi
 The `experiments/benchmarks/preprocessing_uci.py` script can then be run to download the datasets and run some preprocessing (as described in the paper). House Electric can be processed using a separate file, `experiments/benchmarks/preprocess_house_electric.py`.
 
 SVGP can then be run using e.g. `python3 main_variational.py --datafile bike/data.npy --preprocess-method whitening --tt-seed 11`.
-Distributed methods can be run using e.g. `python3 main.py --datafile bike/data.npy --preprocess-method whitening --tt-seed 11 --model-type all`.
+Distributed methods can be run using e.g. `python3 main_distributed.py --datafile bike/data.npy --preprocess-method whitening --tt-seed 11 --model-type all`.
 
 ### Reproducing our method
 Our method is run via the `method_of_paper.py` file, using command line, e.g.
