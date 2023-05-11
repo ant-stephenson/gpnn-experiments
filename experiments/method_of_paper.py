@@ -201,37 +201,37 @@ def get_million_paper_results(fname):
     nll =  - 99.
     time = -99.
     compute = '-null'
-    if (fname == '/Users/marfa/documents/reformatted_UCI_array_datasets/bike/data.npy'):
+    if (fname == 'bike/data.npy'):
         rmse = 0.220
         nll = 0.119
         time = 41.2
         compute = '1_GPU exact'
-    if (fname == '/Users/marfa/documents/reformatted_UCI_array_datasets/ctslice/data.npy'):
+    if (fname == 'ctslice/data.npy'):
         rmse = .218
         nll = -.073
         time = 129.6
         compute = '1-GPU SGPR'
-    if (fname == '/Users/marfa/documents/reformatted_UCI_array_datasets/poletele/data.npy'):
+    if (fname == 'poletele/data.npy'):
         rmse = 0.151
         nll = -.18
         time =  41.5
         compute = '1-GPU exact'
-    if (fname ==  '/Users/marfa/documents/reformatted_UCI_array_datasets/protein/data.npy'):
+    if (fname ==  'protein/data.npy'):
         rmse = .536
         nll =  1.018
         time = 47.9
         compute = '1-GPU exact'
-    if (fname == '/Users/marfa/documents/reformatted_UCI_array_datasets/road3d/data.npy'):
+    if (fname == 'road3d/data.npy'):
         rmse = .101
         nll =   .909
         time = 720.5
         compute = '8-GPU SGPR'
-    if (fname == '/Users/marfa/documents/reformatted_UCI_array_datasets/song/data.npy'):
+    if (fname == 'song/data.npy'):
         rmse = .803
         nll =  1.21
         time = 253.4
         compute = '8-GPU exact'
-    if (fname == '/Users/marfa/documents/reformatted_UCI_array_datasets/house_electric/data.npy'):
+    if (fname == 'house_electric/data.npy'):
         rmse = .055
         nll =  -.152
         time = 4317.3
@@ -241,19 +241,19 @@ def get_million_paper_results(fname):
  
 def get_short_name(fname):
     short_name = fname
-    if (fname == '/Users/marfa/documents/reformatted_UCI_array_datasets/bike/data.npy'):
+    if (fname == 'bike/data.npy'):
         short_name = 'bike'
-    if (fname == '/Users/marfa/documents/reformatted_UCI_array_datasets/ctslice/data.npy'):
+    if (fname == 'ctslice/data.npy'):
         short_name = 'ctslice'
-    if (fname == '/Users/marfa/documents/reformatted_UCI_array_datasets/poletele/data.npy'):
+    if (fname == 'poletele/data.npy'):
         short_name = 'poletele'
-    if (fname ==  '/Users/marfa/documents/reformatted_UCI_array_datasets/protein/data.npy'):
+    if (fname ==  'protein/data.npy'):
         shortname = 'protein'
-    if (fname == '/Users/marfa/documents/reformatted_UCI_array_datasets/road3d/data.npy'):
+    if (fname == 'road3d/data.npy'):
         shortname = 'road3d'
-    if (fname == '/Users/marfa/documents/reformatted_UCI_array_datasets/song/data.npy'):
+    if (fname == 'song/data.npy'):
         shorname = 'song'
-    if (fname == '/Users/marfa/documents/reformatted_UCI_array_datasets/house_electric/data.npy'):
+    if (fname == 'house_electric/data.npy'):
         shortname = 'house_electric'
     return(short_name)
  
