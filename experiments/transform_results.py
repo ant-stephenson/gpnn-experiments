@@ -23,9 +23,9 @@ def get_results(path, kernel_type="RBF"):
     return results,summary, timings
 
 #%% get results and add normalised prediction time
-dist_loc = Path("/Users/anthonystephenson/Documents/Distributed_Results_April_24th.csv")
-svgp_loc = Path("/Users/anthonystephenson/Documents/SVGP_Results_April_21st.csv")
-mop_loc = Path("/Users/anthonystephenson/Documents/csv_results_output_file2c_with_dscal.csv")
+dist_loc = Path("path.csv")
+svgp_loc = Path("path.csv")
+mop_loc = Path("path.csv")
 
 
 #TODO: UPDATED RESULTS WOULD REMOVE THIS. IF TRUE, REPLACES WRONG n VALUE WITH
