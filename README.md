@@ -25,7 +25,7 @@ Our method is run via the `method_of_paper.py` file, using command line, e.g.
 `python3 method_of_paper.py -xyinfl bike/data.npy -aker RBF  -seed 11   -n_recal 1000`
 
 ### Generating the results table
-The results from all of the distributed methods can be combined and then imported into python with the results of SVGP and our method and analysed with the aid of the "transform_results.py" script which imports various functions from the "results_utils.py" file.
+The results from all of the distributed methods can be combined and then imported into python with the results of SVGP and our method and analysed with the aid of the `transform_results.py` script which imports various functions from the `results_utils.py` file.
 
 ## Guide to reproduce simulated results
 Run the below snippet with relevant location filled in (and choices of parameters) in a bash script.
