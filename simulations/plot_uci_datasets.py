@@ -1,4 +1,5 @@
 #%%
+import os
 import numpy as np
 import pandas as pd
 from pathlib import Path
@@ -12,6 +13,7 @@ import functools
 
 import gpybench.plotting as gplot
 
+# os.chdir(Path(".").absolute().parent.joinpath("gpnn-experiments/simulations"))
 from plot_utils import *
 
 sns.set_palette(None)
@@ -22,7 +24,7 @@ pathbase = "/Users/anthonystephenson/Documents/GitHub/"
 # pathstr =
 # "/Users/anthonystephenson/Documents/GitHub/mini-project/experiments/sim_gpnn_limits_results.csv"
 # pathstr ="/Users/anthonystephenson/Documents/GitHub/gpnn-experiments/sim_gpnn_limits_results_Dim2.csv"
-pathstr = "/Users/anthonystephenson/Documents/GitHub/gpnn-experiments/sim_gpnn_limits_results_song_whiten_dimrescale_rep.csv"
+pathstr = "/Users/anthonystephenson/Documents/GitHub/gpnn-experiments/sim_gpnn_limits_results_ctslice_whiten_dimrescale_Exp.csv"
 path = Path(".").joinpath(pathstr)
 
 dtype_dict = {'n': int, 'n_test': int, 'd': int, 'm': int, 'seed': int, 'k_true': str, 'k_model': str, 'ks': np.float32, 'ls': np.float32, 'nv': np.float32, 'assum_ks': np.float32, 'assum_ls': np.float32, 'assum_nv': np.float32, 'varypar': str, 'mse': np.float32, 'nll': np.float32, 'mscal': np.float32}
@@ -33,12 +35,14 @@ data = data.fillna(-999)
 data = data.groupby(["n","d","m","n_test","assum_ls", "k_model", "k_true", "varypar"]).mean().reset_index()
 
 dataset = "".join([x if x in pathstr else "" for x in ["ciq", "oak"] + list(uci_datasets)])
+
+kernel_type = "".join([x if x in pathstr else "RBF" for x in ["Exp"]])
 #%%
 if dataset in uci_datasets:
     ls = data.ls.unique()
     ks = data.ks.unique().item()
     nv = data.nv.unique().item()
-    kernel = "RBF"
+    kernel = kernel_type
     d = data.d.unique().item()
 min_n = 1000
 
@@ -55,7 +59,7 @@ ns = get_unique_n_by_ls(data,data.ls.unique())
 if dataset in uci_datasets:
     _ls = ls.item()
     fig, ax = plt.subplots()
-    plot_metric_param(data, "mse", "assum_ls", ax, ns, d, _ls)
+    plot_metric_param(data, "mse", "assum_ls", ax, ns, d, _ls, kernel_type)
     ax.set_xlim(0.0,5.0)
     mse_min = data.mse.min()
     mse_max = data.mse.max()
@@ -66,6 +70,6 @@ if dataset in uci_datasets:
     plt.title(f"MSE ({dataset})")
     if do_save_plots:
         gplot.save_fig(Path(".").joinpath(pathbase).joinpath("mini-project"),
-        f"sim_metric_param_{dataset}_d={d}_rescale".replace(".","spot"), "pdf",
+        f"sim_metric_param_{dataset}_d={d}_rescale_{kernel_type}".replace(".","spot"), "pdf",
         show=True, overwrite=True)
 # %%

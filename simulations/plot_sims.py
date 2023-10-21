@@ -21,14 +21,6 @@ uci_datasets = ("ctslice", "song", "buzz", "house_electric", "protein", "road3d"
 pathbase = "/Users/anthonystephenson/Documents/GitHub/"
 pathstr = "/Users/anthonystephenson/Documents/GitHub/gpnn-experiments/sim_gpnn_limits_results_d20.csv"
 # pathstr ="/Users/anthonystephenson/Documents/GitHub/gpnn-experiments/sim_gpnn_limits_results_Dim2.csv"
-path = Path(".").joinpath(pathstr)
-
-dtype_dict = {'n': int, 'n_test': int, 'd': int, 'm': int, 'seed': int, 'k_true': str, 'k_model': str, 'ks': np.float32, 'ls': np.float32, 'nv': np.float32, 'assum_ks': np.float32, 'assum_ls': np.float32, 'assum_nv': np.float32, 'varypar': str, 'mse': np.float32, 'nll': np.float32, 'mscal': np.float32}
-
-data = pd.read_csv(path, dtype=dtype_dict, header=0, sep=',')
-data = data.round(4)
-data = data.fillna(-999)
-# data = data.groupby(["n","d","m","n_test","assum_ls", "k_model", "k_true", "varypar"]).mean().reset_index()
 
 dataset = "".join([x if x in pathstr else "" for x in ["ciq", "oak", "dim"] + list(uci_datasets)])
 
@@ -38,10 +30,11 @@ ks = 0.9
 nv = 0.1
 ###
 d = 20
-kernel = "RBF"
+k_model = "RBF"
+k_true = "RBF"
 min_n = 1000
 
-data = data.query('(n >= @min_n) & (ls in @ls) & (ks == @ks) & (k_model ==@kernel) & (k_model == k_true) & (d==@d)').reset_index()
+data = get_sim_data(pathstr, ls, ks, nv, k_model=k_model, k_true=k_true, d=d)
 
 ns = get_unique_n_by_ls(data,data.ls.unique())
 
